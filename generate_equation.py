@@ -3,30 +3,35 @@ import random as rnd
 
 # class for generating the equation
 class Equation:
-    def generate_equation(self, number):
+    def generate_equation(self, number) -> str:
         equations = ["+", "-", "*", "/"]
 
         # quantity of numbers to be used excluding the total
-        quantity_of_numbers = rnd.randint(2, 3)
+        ##quantity_of_numbers = rnd.randint(2, 3)
+        quantity_of_numbers = 2
 
         # condition where the quantity of numbers is only 2
         if quantity_of_numbers == 2:
-            operation = rnd.random(equations)
+            operation = rnd.choice(equations)
+            print(operation)
 
             # condition if operation is addition
-            if operation == "+":
+            while operation == "+":
                 first_number = rnd.randint(1, number//2)
                 second_number = number - first_number
-                return f"{first_number.zfill(2)} + {second_number.zfill(2)} = {number.zfill(2)}"
+                print("Addition")
+                return f"{str(first_number).zfill(2)}+{str(second_number).zfill(2)}={str(number).zfill(2)}"
             
             # condition if operation is subtraction
-            elif operation == "-":
+            while operation == "-":
                 first_number = rnd.randint(1, number//2)
                 second_number = number + first_number
-                return f"{second_number.zfill(2)} - {first_number.zfill(2)} = {number.zfill(2)}"
+                print("Subtraction")
+                return f"{str(second_number).zfill(2)}-{str(first_number).zfill(2)}={str(number).zfill(2)}"
             
             # condition if operation is multiplication
-            elif operation == "*":
+            while operation == "*":
+                print("Multiplication")
                 factors = []
                 # while condition to check if number is odd or even to make it easier to detect prime numbers
                 while number % 2 != 0:
@@ -41,9 +46,9 @@ class Equation:
                         number = rnd.randint(1, 99)
                         continue
                     else:
-                        first_number = rnd.random(factors)
+                        first_number = rnd.choice(factors)
                         second_number = number / first_number
-                        return f"{first_number.zfill(2)} * {second_number.zfill(2)} = {number.zfill(2)}"
+                        return f"{str(first_number).zfill(2)}*{str(second_number).zfill(2)}={str(number).zfill(2)}"
 
                 # if nummber is even we simply find an even number to be the first factor
                 else:
@@ -52,11 +57,12 @@ class Equation:
                     if number % first_number != 0:
                         first_number = rnd.choice(range(1, 9, 2))
                     else:
-                        second_number = number / first_number
-                        return f"{first_number.zfill(2)} * {second_number.zfill(2)} = {number.zfill(2)}"
+                        second_number = int(number / first_number)
+                        return f"{str(first_number).zfill(2)}*{str(second_number).zfill(2)}={str(number).zfill(2)}"
             
             # condition if the operation is division
-            elif operation == "/":
+            while operation == "/":
+                print("Division")
                 dividing = True
                 while dividing:
                     first_number = rnd.randint(1, 9)
@@ -66,4 +72,7 @@ class Equation:
                         continue
                     else:
                         second_number = number * first_number
-                        return f"{second_number} * {first_number} = {number}"
+                        if len(str(second_number)) == 2:
+                            return f"{str(second_number).zfill(2)}/{str(first_number).zfill(2)}={str(number).zfill(2)}"
+                        else:
+                            return f"{second_number}/{first_number}={number}"

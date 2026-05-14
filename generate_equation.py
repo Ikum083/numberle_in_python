@@ -47,7 +47,7 @@ class Equation:
                         continue
                     else:
                         first_number = rnd.choice(factors)
-                        second_number = number / first_number
+                        second_number = int(number / first_number)
                         return f"{str(first_number).zfill(2)}*{str(second_number).zfill(2)}={str(number).zfill(2)}"
 
                 # if nummber is even we simply find an even number to be the first factor
@@ -74,5 +74,7 @@ class Equation:
                         second_number = number * first_number
                         if len(str(second_number)) == 2:
                             return f"{str(second_number).zfill(2)}/{str(first_number).zfill(2)}={str(number).zfill(2)}"
-                        else:
+                        elif len(str(second_number)) == 3:
                             return f"{second_number}/{first_number}={number}"
+                        else:
+                            return f"{str(second_number).zfill(2)}/{str(first_number).zfill(2)}={str(number).zfill(2)}"

@@ -72,7 +72,12 @@ class MainClass(Equation):
                 self.answering = False
 
 if __name__ == "__main__":
-    MainClass()
+    player_playing = True
+    while player_playing:
+        MainClass()
+        print("\n1. Play again")
+        print("2. Check game stats")
+        print("3. Quit")
 
 ### ask user to continue or end game (setup while loop)
 ### keep track of user streak through a text file

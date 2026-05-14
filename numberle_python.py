@@ -2,6 +2,7 @@
 # numberle is a game inspired from wordle where instead of guessing a 5 letter word you guess an equation 
 from random import randint
 from generate_equation import Equation
+
 ## setup main class
 class MainClass(Equation):
 ## setup instance method
@@ -23,6 +24,7 @@ class MainClass(Equation):
         print("2. Use +, -, * and / to illustrate operations")
         print("3. You are limited  to 6 tries")
         print("4. We will display 'O' if the character is correct, 'H' if the answer is correct but in the wrong place and 'X' if the answer is wrong")
+        print("5. Do not put spaces in between any of the characters")
 
         ### give the user 6 tries to answer the question
         while self.answering:
@@ -54,8 +56,8 @@ class MainClass(Equation):
                 self.character += 1
 
             print(f"\n{self.correction}")
-            ### condition for if user guess the equation in or before 6 turns or fails
 
+            ### condition for if user guess the equation in or before 6 turns or fails
             if self.quantity_right_ans == 8:
                 print(f"\nYou got it right!")
                 self.answering = False

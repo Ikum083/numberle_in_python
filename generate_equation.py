@@ -54,5 +54,16 @@ class Equation:
                     else:
                         second_number = number / first_number
                         return f"{first_number.zfill(2)} * {second_number.zfill(2)} = {number.zfill(2)}"
-
-                    
+            
+            # condition if the operation is division
+            elif operation == "/":
+                dividing = True
+                while dividing:
+                    first_number = rnd.randint(1, 9)
+                    # condition where the first number is not divisible to the total so we restart until the first number is divisible
+                    if number % first_number != 0:
+                        first_number = rnd.randint(1, 9)
+                        continue
+                    else:
+                        second_number = number * first_number
+                        return f"{second_number} * {first_number} = {number}"

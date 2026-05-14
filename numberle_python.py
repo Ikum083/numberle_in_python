@@ -120,4 +120,4 @@ if __name__ == "__main__":
                 MainClass.game_statistics()
                 break
             else:
-                player_playing = False
+                quit()

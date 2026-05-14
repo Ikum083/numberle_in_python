@@ -11,7 +11,7 @@ class Equation:
 
         # condition where the quantity of numbers is only 2
         if quantity_of_numbers == 2:
-            operation = rnd.Random(equations)
+            operation = rnd.random(equations)
 
             # condition if operation is addition
             if operation == "+":
